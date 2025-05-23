@@ -1,0 +1,41 @@
+name: Weekly STAR → README
+
+on:
+  schedule:          # every Friday 18:00 UTC (14:00 Toronto)
+    - cron:  '0 18 * * FRI'
+  workflow_dispatch: # lets you run it manually from the Actions tab
+
+jobs:
+  inject:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick newest STAR file
+        id: star
+        run: |
+          file=$(ls -t clcp1100/star/*.md | head -n1)
+          echo "FILE=$file" >> $GITHUB_OUTPUT
+
+      - name: Update README block
+        run: |
+          start="<!-- WEEKLY_STAR_START -->"
+          end="<!-- WEEKLY_STAR_END -->"
+          starfile="${{ steps.star.outputs.FILE }}"
+          newblock="$(cat "$starfile")"
+          awk -v s="$start" -v e="$end" -v b="$newblock" '
+            $0~s{print;print "";print b;print "";skip=1;next}
+            $0~e{skip=0}
+            skip==0{print}
+          ' README.md > README.tmp
+          mv README.tmp README.md
+          sed -i "s/<!--TIMESTAMP-->/$(date -u)/" README.md
+
+      - name: Commit & push
+        run: |
+          git config user.name  github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add README.md
+          git commit -m "docs: weekly STAR auto‑update" || echo "no changes"
+          git push
+
