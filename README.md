@@ -18,7 +18,7 @@
 ---
 
 ## 🛠 Tech Arsenal
-`AWS | Azure | GCP | Docker | CDK | Terraform | Go | TypeScript | Python | COBOL`
+`AWS | Azure | GCP | Docker | CDK | Terraform | JS | TypeScript | Python `
 
 ---
 
