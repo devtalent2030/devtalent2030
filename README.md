@@ -7,7 +7,7 @@
 ---
 
 ## 🚀 Current Mission
-*Finish the Cloud Computing program ranked **#1 / 27** while building senior‑level cloud artifacts.*
+*Finish the Cloud Computing program ranked **#1 / 27**.*
 
 | KPI | Target |
 |-----|--------|
