@@ -47,6 +47,9 @@
 ## 🔗 Featured Projects
 [![SecuriScan](https://github-readme-stats.vercel.app/api/pin/?username=devtalent2030&repo=SecuriScan)](https://github.com/devtalent2030/SecuriScan)
 [![AI Chatbot](https://github-readme-stats.vercel.app/api/pin/?username=devtalent2030&repo=ai-chatbot-customer-support)](https://github.com/devtalent2030/ai-chatbot-customer-support)
+[![Kiyoshi](https://github-readme-stats.vercel.app/api/pin/?username=devtalent2030&repo=kiyoshi)](https://github.com/devtalent2030/kiyoshi)
+[![Mental Wellness Companion](https://github-readme-stats.vercel.app/api/pin/?username=devtalent2030&repo=mental_wellness_companion)](https://github.com/devtalent2030/mental_wellness_companion)
+
 
 ---
 
