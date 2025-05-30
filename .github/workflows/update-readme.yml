@@ -2,7 +2,7 @@ name: Weekly STAR → README
 
 on:
   schedule:          # every Friday 18:00 UTC (14:00 Toronto)
-    - cron:  '0 18 * * FRI'
+    - cron:  '0 */3 * * FRI'
   workflow_dispatch: # lets you run it manually from the Actions tab
 
 jobs:
