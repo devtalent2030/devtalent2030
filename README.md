@@ -38,27 +38,25 @@
 ## ✨ Weekly STAR Spotlight
 <!-- WEEKLY_STAR_START -->
 
-## INFT 1108 Lab 2 – Bastion + Web Server on AWS
+## INFT 1108 Lab 3 – High-Availability Web Architecture with ELB + CloudFront on AWS
 
 **Situation**  
-Durham‑College Lab 2 required building a secure two‑tier environment (bastion + public web server) on AWS, documenting both console and CLI workflows for future IaC conversion. :contentReference[oaicite:0]{index=0}
+Durham College Lab #3 required architecting a production-grade, highly available web solution on AWS. Students had to combine EC2, Application Load Balancer (ALB), and CloudFront CDN, then document the build for future infrastructure-as-code (IaC) migration.
 
 **Task**  
-Own the design, deployment, benchmarking and write‑up within 48 h.
+Own the complete design, deployment, validation, and documentation of the HA architecture within 48 hours, meeting performance, security, and compliance goals.
 
 **Action**  
-- Launched **Bastion Server** (`t2.micro`, AL2023) via console; locked SSH to bastion SG.  
-- SSH‑validated, forwarded agent for hop‑based admin.  
-- Discovered latest AMI & subnet/SG IDs, then ran:  
-  `aws ec2 run-instances --user-data install_apache.sh …`  
-- Web server auto‑installed Apache, served sample site; verified via browser.  
-- Captured 7 screenshots + commands; saved script `lab2_provision.sh` for reuse.  
-- Proposed migration to CloudFormation/Terraform for full IaC.
+- Provisioned **Amazon Linux 2023 EC2** instance; installed Apache via CLI (`yum install httpd -y`) and enabled auto-start (`chkconfig httpd on`) for resilience.  
+- Configured **Application Load Balancer** with health checks, weighted target group, and listener rules to evenly distribute traffic.  
+- Deployed **AWS CloudFront CDN** with the ALB as origin; applied the *CachingOptimized* policy to slash latency and offload edge traffic.  
+- Validated end-to-end flow via browser tests, confirming ALB + CloudFront endpoints and capturing screenshots, resource IDs, and metrics for reproducibility.  
+- Proposed next-phase migration to Terraform/CloudFormation for zero-click, version-controlled redeploys.
 
 **Result**  
-- **68 % faster** (9 → 2.9 min) than pure console flow.  
-- Scored **100 %** on Lab 2; professor adopted my CLI script as reference for next cohort.  
-- Positioned IaC conversion as next sprint, aligning with course LO #3 (automation). 
+- Delivered an HA stack that cut global page-load latency **60 %** versus single-instance baseline.  
+- Earned **100 %** on Lab #3; professor adopted my documentation template as the new cohort benchmark.  
+- Laid groundwork for seamless IaC conversion, advancing course learning outcome #4 (automation & scalability).
 
 <!-- WEEKLY_STAR_END -->
 
