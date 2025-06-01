@@ -14,8 +14,11 @@ jobs:
       - name: Pick newest STAR file
         id: star
         run: |
-          file=$(ls -t clcp1100/star/*.md | head -n1)
+          # sort filenames (YYYY-MM-DD-*.md) lexically, newest date first
+          file=$(ls clcp1100/star/*.md | sort -r | head -n1)
+          echo "Chosen STAR → $file"
           echo "FILE=$file" >> $GITHUB_OUTPUT
+
 
       - name: Update README block
         run: |
