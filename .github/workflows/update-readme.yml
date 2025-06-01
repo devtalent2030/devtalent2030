@@ -32,7 +32,7 @@ jobs:
             skip==0{print}
           ' README.md > README.tmp
           mv README.tmp README.md
-          sed -i "s/<!--TIMESTAMP-->/$(date -u)/" README.md
+          sed -i 's/Last updated: .*<\/sup>/Last updated: '"$(date -u)"'<\/sup>/' README.md
 
       - name: Commit & push
         run: |
