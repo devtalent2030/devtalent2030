@@ -6,23 +6,12 @@
 
 ---
 
-## 🚀 Current Mission
-*Finish the Cloud Computing program ranked **#1 / 27**.*
-
-| KPI | Target |
-|-----|--------|
-| Semester GPA | **≥ 4.3** |
-| Weekly deep‑work hrs | **25 h** |
-| Artifact shipped | **≥ 1 per course / fortnight** |
-
----
-
 ## 🛠 Tech Arsenal
 `AWS | Azure | GCP | Docker | CDK | Terraform | JS | TypeScript | Python `
 
 ---
 
-## 📚 Course Tracker (Semester 1)
+## 📚 Course Tracker
 | Course | Focus Artifact | Status |
 |--------|----------------|--------|
 | CLCP 1100 – Careers | Profile README & weekly STAR stories | 🟢 |
