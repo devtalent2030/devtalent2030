@@ -1,7 +1,7 @@
 <!-- Profile banner -->
 <h1 align="center">👋🏿 Hi, I’m Talent Nyota</h1>
 <p align="center">
-  🇨🇦 Toronto • ☁️ Cloud Grad Certificate @ Durham College • 💻 21+ public repos
+  🇨🇦 • ☁️ Cloud Grad 
 </p>
 
 ---
