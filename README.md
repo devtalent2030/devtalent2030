@@ -1,5 +1,5 @@
 <!-- Profile banner -->
-<h1 align="center">👋🏿 Talent Nyota — Cloud & Platform Engineering • Cloud Security</h1>
+<h1 align="center"> Talent Nyota — Cloud & Platform Engineering • Cloud Security</h1>
 <p align="center">
   Toronto • Hybrid/Remote
   <br/>
