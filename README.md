@@ -21,9 +21,9 @@
 ---
 
 ### What I do
-I build cloud platforms that **scale** and **stay secure**. VPC → app → SOC — instrumented, automated, and production-ready.
+I architect cloud platforms that **scale securely**. From VPCs to SOCs—automated, instrumented, production-ready.
 
-**Stack:** `AWS · Azure · GCP · Terraform · CDK · Docker · Python · TypeScript`
+**Stack:** `AWS · Azure · GCP · Terraform · CDK · Docker · Python ·`
 
 ---
 
@@ -125,8 +125,8 @@ export LLM_PROVIDER=anthropic   # or: openai
 
 ---
 
-### Contact
-Looking for a cloud platform that ships and stays secure?  
-**Email:** `trnyota@gmail.com` · **Toronto** · **Hybrid/Remote**
+### Contact/Hire Me!
+Need a cloud platform that scales and secures? I bring initiative, code, and results 
+**Email:** `devtalent208@gmail.com` · **Toronto** · **Hybrid/Remote**
 
 <sup>Last updated: Sat Oct 25 20:25:31 UTC 2025</sup>
