@@ -1,44 +1,72 @@
-name: Weekly STAR → README
+name: Learning Showcase → README
 
 on:
-  schedule:          # every Friday 18:00 UTC (14:00 Toronto)
-    - cron:  '0 */3 * * FRI'
-  workflow_dispatch: # lets you run it manually from the Actions tab
+  schedule:
+    # Every Friday 18:00 UTC (14:00 Toronto, adjusts with DST automatically)
+    - cron: '0 18 * * FRI'
+  workflow_dispatch:
 
 jobs:
   inject:
     runs-on: ubuntu-latest
+    env:
+      # MODE=latest → pick newest file by date prefix
+      # MODE=random → pick a random file each run
+      MODE: latest
+      FOLDER: showcase
+      README: README.md
+      START: "<!-- SHOWCASE_START -->"
+      END: "<!-- SHOWCASE_END -->"
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Pick newest STAR file
-        id: star
+      - name: Ensure showcase folder exists
         run: |
-          # sort filenames (YYYY-MM-DD-*.md) lexically, newest date first
-          file=$(ls clcp1100/star/*.md | sort -r | head -n1)
-          echo "Chosen STAR → $file"
-          echo "FILE=$file" >> $GITHUB_OUTPUT
+          if [ ! -d "$FOLDER" ]; then
+            echo "::error::Folder '$FOLDER' not found. Create it and add *.md files."
+            exit 1
+          fi
+          ls -1 "$FOLDER"/*.md 2>/dev/null || { echo "::error::No markdown files in $FOLDER/"; exit 1; }
 
-
-      - name: Update README block
+      - name: Pick showcase file
+        id: pick
+        shell: bash
         run: |
-          start="<!-- WEEKLY_STAR_START -->"
-          end="<!-- WEEKLY_STAR_END -->"
-          starfile="${{ steps.star.outputs.FILE }}"
+          set -euo pipefail
+          if [ "${MODE}" = "random" ]; then
+            file=$(ls -1 "${FOLDER}"/*.md | shuf -n1)
+          else
+            # default: pick newest by YYYY-MM-DD prefix
+            file=$(ls -1 "${FOLDER}"/*.md | sort -r | head -n1)
+          fi
+          echo "Chosen → $file"
+          echo "FILE=$file" >> "$GITHUB_OUTPUT"
+
+      - name: Inject into README
+        shell: bash
+        run: |
+          set -euo pipefail
+          starfile="${{ steps.pick.outputs.FILE }}"
           newblock="$(cat "$starfile")"
-          awk -v s="$start" -v e="$end" -v b="$newblock" '
-            $0~s{print;print "";print b;print "";skip=1;next}
+
+          # Insert newblock between START and END markers
+          awk -v s="$START" -v e="$END" -v b="$newblock" '
+            $0~s{print; print ""; print b; print ""; skip=1; next}
             $0~e{skip=0}
             skip==0{print}
-          ' README.md > README.tmp
-          mv README.tmp README.md
-          sed -i 's/Last updated: .*<\/sup>/Last updated: '"$(date -u)"'<\/sup>/' README.md
+          ' "$README" > README.tmp
+          mv README.tmp "$README"
+
+          # Update timestamp line if present (keeps your minimal vibe)
+          if grep -q "Last updated:" "$README"; then
+            sed -i 's/Last updated: .*<\/sup>/Last updated: '"$(date -u)"'<\/sup>/' "$README"
+          fi
 
       - name: Commit & push
         run: |
           git config user.name  github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add README.md
-          git commit -m "docs: weekly STAR auto‑update" || echo "no changes"
+          git add "$README"
+          git commit -m "docs: rotate Learning Showcase → README" || echo "no changes"
           git push
-
