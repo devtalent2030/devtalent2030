@@ -13,7 +13,7 @@ jobs:
   inject:
     runs-on: ubuntu-latest
     env:
-      MODE: latest          # latest | random
+      MODE: latest                    # latest | random
       FOLDER: showcase
       README: README.md
       START: "<!-- SHOWCASE_START -->"
@@ -25,7 +25,6 @@ jobs:
       - name: Sanity check
         run: |
           echo "Branch: ${{ github.ref_name }}"
-          ls -la
           test -d "$FOLDER" || { echo "::error::Folder '$FOLDER' not found"; exit 1; }
           ls -1 "$FOLDER"/*.md || { echo "::error::No markdown files in $FOLDER/"; exit 1; }
           grep -q "$START" "$README" || { echo "::error::START marker not found in $README"; exit 1; }
@@ -33,35 +32,51 @@ jobs:
 
       - name: Pick showcase file
         id: pick
+        shell: bash
         run: |
           set -euo pipefail
           if [ "$MODE" = "random" ]; then
-            file=$(ls -1 "$FOLDER"/*.md | shuf -n1)
+            FILE=$(ls -1 "$FOLDER"/*.md | shuf -n1)
           else
-            file=$(ls -1 "$FOLDER"/*.md | sort -r | head -n1)
+            # pick newest by YYYY-MM-DD prefix
+            FILE=$(ls -1 "$FOLDER"/*.md | sort -r | head -n1)
           fi
-          echo "Chosen → $file"
-          echo "FILE=$file" >> "$GITHUB_OUTPUT"
+          echo "Chosen → $FILE"
+          echo "FILE=$FILE" >> "$GITHUB_OUTPUT"
 
-      - name: Inject into README
+      - name: Inject into README (safe Python)
+        env:
+          STARFILE: ${{ steps.pick.outputs.FILE }}
         run: |
-          set -euo pipefail
-          starfile="${{ steps.pick.outputs.FILE }}"
-          echo "::notice::Injecting $starfile"
-          newblock="$(cat "$starfile")"
+          python - <<'PY'
+          import os, re, datetime
 
-          # Replace the content between markers, preserving both markers
-          awk -v s="$START" -v e="$END" -v b="$newblock" '
-            $0==s { print; print ""; print b; print ""; in=1; next }
-            $0==e { print; in=0; next }
-            !in { print }
-          ' "$README" > README.tmp
-          mv README.tmp "$README"
+          START = os.environ['START']
+          END = os.environ['END']
+          README = os.environ['README']
+          STARFILE = os.environ['STARFILE']
 
-          # Update timestamp line if present
-          if grep -q "Last updated:" "$README"; then
-            sed -i 's/Last updated: .*<\/sup>/Last updated: '"$(date -u)"'<\/sup>/' "$README"
-          fi
+          with open(STARFILE, 'r', encoding='utf-8') as f:
+            block = f.read().strip()
+
+          with open(README, 'r', encoding='utf-8') as f:
+            txt = f.read()
+
+          # Replace strictly between exact markers, preserving the markers
+          pattern = re.compile(re.escape(START) + r'.*?' + re.escape(END), re.S)
+          if not pattern.search(txt):
+            raise SystemExit("Markers not found in README")
+          new_section = START + "\n\n" + block + "\n\n" + END
+          txt = pattern.sub(new_section, txt)
+
+          # Update timestamp if present
+          ts = datetime.datetime.utcnow().strftime("%a %b %d %H:%M:%S UTC %Y")
+          txt = re.sub(r'Last updated: .*?</sup>',
+                       f'Last updated: {ts}</sup>', txt)
+
+          with open(README, 'w', encoding='utf-8') as f:
+            f.write(txt)
+          PY
 
       - name: Commit & push
         run: |
