@@ -2,17 +2,18 @@ name: Learning Showcase → README
 
 on:
   schedule:
-    # Every Friday 18:00 UTC (14:00 Toronto, adjusts with DST automatically)
+    # Every Friday 18:00 UTC (14:00 Toronto)
     - cron: '0 18 * * FRI'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   inject:
     runs-on: ubuntu-latest
     env:
-      # MODE=latest → pick newest file by date prefix
-      # MODE=random → pick a random file each run
-      MODE: latest
+      MODE: latest          # latest | random
       FOLDER: showcase
       README: README.md
       START: "<!-- SHOWCASE_START -->"
@@ -21,52 +22,52 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ensure showcase folder exists
+      - name: Sanity check
         run: |
-          if [ ! -d "$FOLDER" ]; then
-            echo "::error::Folder '$FOLDER' not found. Create it and add *.md files."
-            exit 1
-          fi
-          ls -1 "$FOLDER"/*.md 2>/dev/null || { echo "::error::No markdown files in $FOLDER/"; exit 1; }
+          echo "Branch: ${{ github.ref_name }}"
+          ls -la
+          test -d "$FOLDER" || { echo "::error::Folder '$FOLDER' not found"; exit 1; }
+          ls -1 "$FOLDER"/*.md || { echo "::error::No markdown files in $FOLDER/"; exit 1; }
+          grep -q "$START" "$README" || { echo "::error::START marker not found in $README"; exit 1; }
+          grep -q "$END" "$README"   || { echo "::error::END marker not found in $README"; exit 1; }
 
       - name: Pick showcase file
         id: pick
-        shell: bash
         run: |
           set -euo pipefail
-          if [ "${MODE}" = "random" ]; then
-            file=$(ls -1 "${FOLDER}"/*.md | shuf -n1)
+          if [ "$MODE" = "random" ]; then
+            file=$(ls -1 "$FOLDER"/*.md | shuf -n1)
           else
-            # default: pick newest by YYYY-MM-DD prefix
-            file=$(ls -1 "${FOLDER}"/*.md | sort -r | head -n1)
+            file=$(ls -1 "$FOLDER"/*.md | sort -r | head -n1)
           fi
           echo "Chosen → $file"
           echo "FILE=$file" >> "$GITHUB_OUTPUT"
 
       - name: Inject into README
-        shell: bash
         run: |
           set -euo pipefail
           starfile="${{ steps.pick.outputs.FILE }}"
+          echo "::notice::Injecting $starfile"
           newblock="$(cat "$starfile")"
 
-          # Insert newblock between START and END markers
+          # Replace the content between markers, preserving both markers
           awk -v s="$START" -v e="$END" -v b="$newblock" '
-            $0~s{print; print ""; print b; print ""; skip=1; next}
-            $0~e{skip=0}
-            skip==0{print}
+            $0==s { print; print ""; print b; print ""; in=1; next }
+            $0==e { print; in=0; next }
+            !in { print }
           ' "$README" > README.tmp
           mv README.tmp "$README"
 
-          # Update timestamp line if present (keeps your minimal vibe)
+          # Update timestamp line if present
           if grep -q "Last updated:" "$README"; then
             sed -i 's/Last updated: .*<\/sup>/Last updated: '"$(date -u)"'<\/sup>/' "$README"
           fi
 
       - name: Commit & push
         run: |
-          git config user.name  github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin "${{ github.ref_name }}" || true
           git add "$README"
           git commit -m "docs: rotate Learning Showcase → README" || echo "no changes"
           git push
