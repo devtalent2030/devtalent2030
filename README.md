@@ -68,7 +68,11 @@ I build cloud platforms that **scale** and **stay secure**. VPC → app → SOC 
 ---
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <sup>Last updated: Fri Oct 24 21:18:06 UTC 2025</sup>
+=======
+## What I own end‑to‑end
+>>>>>>> Stashed changes
 =======
 ## What I own end‑to‑end
 >>>>>>> Stashed changes
