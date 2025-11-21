@@ -129,4 +129,4 @@ export LLM_PROVIDER=anthropic   # or: openai
 Need a cloud platform that scales and secures? I bring initiative, code, and results 
 **Email:** `devtalent208@gmail.com` · **Toronto** · **Hybrid/Remote**
 
-<sup>Last updated: Fri Nov 14 18:34:27 UTC 2025</sup>
+<sup>Last updated: Fri Nov 21 18:31:46 UTC 2025</sup>
