@@ -10,7 +10,6 @@
 <p align="center">
   <a href="mailto:trnyota@gmail.com">Email</a> ·
   <a href="https://www.linkedin.com/in/talentnyota/">LinkedIn</a> ·
-  <a href="https://github.com/devtalent2030">GitHub</a>
 </p>
 
 ---
