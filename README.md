@@ -44,8 +44,8 @@
 
 <!-- VISITOR COUNTER -->
 <p align="center">
-  <img 
-    src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=for-the-badge"
+  <img
+    src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=2ECC71&style=for-the-badge"
     alt="Visitors Counter"
     width="260"
     height="60"
