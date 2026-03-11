@@ -40,5 +40,29 @@
   <img src="https://img.shields.io/badge/Python-7B42BC?logo=python&logoColor=white" />
 </p>
 
+
+<!-- VISITOR COUNTERS (compare styles) -->
+<p align="center"><b>Visitor Counters (compare)</b></p>
+
+<!-- 1) Minimal (flat-square, terminal palette) -->
+<p align="center">
+  <img alt="Visitors (flat-square)" src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat-square&icon=2&pretty=true" />
+</p>
+
+<!-- 2) Badge (for-the-badge, bold text) -->
+<p align="center">
+  <img alt="Visitors (for-the-badge)" src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=for-the-badge&icon=2&pretty=true" />
+</p>
+
+<!-- 3) Classic (flat, quieter) -->
+<p align="center">
+  <img alt="Visitors (flat)" src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat&icon=2&pretty=true" />
+</p>
+
+<!-- 4) Plastic (retro sheen) -->
+<p align="center">
+  <img alt="Visitors (plastic)" src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=plastic&icon=2&pretty=true" />
+</p>
+
 ---
 <sup>Last updated: Fri Feb 27 18:52:54 UTC 2026</sup>
