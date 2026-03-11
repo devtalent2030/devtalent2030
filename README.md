@@ -42,24 +42,9 @@
 
 ---
 
-<!-- VISITOR COUNTERS (compare) -->
-<p align="center"><b>Visitor Counters (compare)</b></p>
-
 <!-- Provider A: komarev (reliable, simple) -->
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=flat-square" alt="Visitors (komarev flat-square)" />
-</p>
-
-<!-- Provider B: itsvg (phosphor green, terminal look) -->
-<p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat-square&icon=2&pretty=true" alt="Visitors (itsvg flat-square)" />
-</p>
-
-<!-- Provider C: hits.seeyoufarm (classic counter) -->
-<p align="center">
-  <a href="https://hits.seeyoufarm.com">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevtalent2030%2F&count_bg=%2339FF14&title_bg=%23001100&icon=&icon_color=%23FFFFFF&title=VISITORS&edge_flat=false" alt="Visitors (hits.seeyoufarm)" />
-  </a>
 </p>
 
 ---
