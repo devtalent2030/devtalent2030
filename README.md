@@ -42,11 +42,6 @@
 
 ---
 
-<!-- Provider A: komarev (reliable, simple) -->
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=flat-square" alt="Visitors (komarev flat-square)" />
-</p>
-
 <!-- VISITOR COUNTER -->
 <p align="center">
   <img 
