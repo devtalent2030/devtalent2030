@@ -41,34 +41,4 @@
 </p>
 
 ---
-
-<!-- FONT PREVIEW (1960s-inspired fonts) -->
-
-<h2 align="center">Font Preview</h2>
-
-<!-- IBM Plex Mono Italic -->
-<h3 align="center" style="font-family:'IBM Plex Mono', monospace; font-style:italic;">
-  █▒░ Talent Nyota ░▒█ (IBM Plex Mono Italic)
-</h3>
-
-<!-- Letter Gothic (authentic IBM 1962) -->
-<h3 align="center" style="font-family:'Letter Gothic Std','Letter Gothic',monospace;">
-  █▒░ Talent Nyota ░▒█ (Letter Gothic)
-</h3>
-
-<!-- Courier New Italic (1955 typewriter classic) -->
-<h3 align="center" style="font-family:'Courier New', courier, monospace; font-style:italic;">
-  █▒░ Talent Nyota ░▒█ (Courier Italic)
-</h3>
-
-<!-- OCR-A (1968 machine-readable font) -->
-<h3 align="center" style="font-family:'OCR A Std','OCR A',monospace;">
-  █▒░ Talent Nyota ░▒█ (OCR-A)
-</h3>
-
-<!-- Eurostile (1960s sci-fi tech aesthetic) -->
-<h3 align="center" style="font-family:'Eurostile','Eurostile Extended',sans-serif;">
-  █▒░ Talent Nyota ░▒█ (Eurostile)
-</h3>
-
 <sup>Last updated: Fri Feb 27 18:52:54 UTC 2026</sup>
