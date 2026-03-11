@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="mailto:trnyota@gmail.com">Email</a> ·
-  <a href="https://www.linkedin.com/in/talentnyota/">LinkedIn</a> ·
+  <a href="https://www.linkedin.com/in/talentnyota/">LinkedIn</a>
 </p>
 
 ---
@@ -42,29 +42,27 @@
 
 ---
 
-<!-- VISITOR COUNTERS (compare styles) -->
+<!-- VISITOR COUNTERS (compare) -->
 <p align="center"><b>Visitor Counters (compare)</b></p>
 
-<!-- 1) Minimal (flat-square, terminal palette) -->
+<!-- Provider A: komarev (reliable, simple) -->
 <p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat-square&icon=2&pretty=true" alt="Visitors (flat-square)" />
+  <img src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=flat-square" alt="Visitors (komarev flat-square)" />
 </p>
 
-<!-- 2) Badge (for-the-badge, bold text) -->
+<!-- Provider B: itsvg (phosphor green, terminal look) -->
 <p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=for-the-badge&icon=2&pretty=true" alt="Visitors (for-the-badge)" />
+  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat-square&icon=2&pretty=true" alt="Visitors (itsvg flat-square)" />
 </p>
 
-<!-- 3) Classic (flat, quieter) -->
+<!-- Provider C: hits.seeyoufarm (classic counter) -->
 <p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=flat&icon=2&pretty=true" alt="Visitors (flat)" />
-</p>
-
-<!-- 4) Plastic (retro sheen) -->
-<p align="center">
-  <img src="https://visitcount.itsvg.in/api?id=devtalent2030&label=VISITORS&color=39FF14&labelColor=001100&style=plastic&icon=2&pretty=true" alt="Visitors (plastic)" />
+  <a href="https://hits.seeyoufarm.com">
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevtalent2030%2F&count_bg=%2339FF14&title_bg=%23001100&icon=&icon_color=%23FFFFFF&title=VISITORS&edge_flat=false" alt="Visitors (hits.seeyoufarm)" />
+  </a>
 </p>
 
 ---
 
 <sup>Last updated: Fri Feb 27 18:52:54 UTC 2026</sup>
+``
