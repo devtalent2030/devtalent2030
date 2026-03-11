@@ -47,6 +47,16 @@
   <img src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=flat-square" alt="Visitors (komarev flat-square)" />
 </p>
 
+<!-- VISITOR COUNTER -->
+<p align="center">
+  <img 
+    src="https://komarev.com/ghpvc/?username=devtalent2030&label=VISITORS&color=39FF14&style=for-the-badge"
+    alt="Visitors Counter"
+    width="260"
+    height="60"
+  />
+</p>
+
 ---
 
 <sup>Last updated: Fri Feb 27 18:52:54 UTC 2026</sup>
