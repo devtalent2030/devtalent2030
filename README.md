@@ -1,5 +1,11 @@
 <!-- PROFILE HEADER -->
-<h1 align="center" style="font-family:Consolas,Monaco,'Courier New',monospace; font-weight:700;">
+<h1 align="center"
+    style="font-family:Consolas,Monaco,'Courier New',monospace;
+           font-weight:600;
+           font-style:italic;
+           font-size:1.8rem;      /* smaller for mobile */
+           letter-spacing:1px;    /* tighter spacing */
+    ">
   █▒░ Talent Nyota ░▒█
 </h1>
 
