@@ -1,12 +1,17 @@
 <!-- PROFILE HEADER -->
 <h1 align="center"
-    style="font-family:Consolas,Monaco,'Courier New',monospace;
-           font-weight:600;
-           font-style:italic;
-           font-size:1.8rem;      /* smaller for mobile */
-           letter-spacing:1px;    /* tighter spacing */
+    style="
+      font-family:Consolas,Monaco,'Courier New',monospace;
+      font-weight:600;
+      font-style:italic;
+      font-size:1.6rem;
+      letter-spacing:1px;
     ">
-  █▒░ Talent Nyota ░▒█
+  <span style="color:#39FF14;">▒░</span>
+  <span style="color:white;">█</span>
+  <span style="color:white;"> Talent Nyota </span>
+  <span style="color:white;">█</span>
+  <span style="color:#39FF14;">░▒</span>
 </h1>
 
 <p align="center" style="font-family:Consolas,Monaco,'Courier New',monospace;">
