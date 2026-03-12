@@ -4,7 +4,7 @@
       font-family:Consolas,Monaco,'Courier New',monospace;
       font-weight:600;
       font-style:italic;
-      font-size:1rem;
+      font-size:0.5rem;
       letter-spacing:1px;
     ">
   <span style="color:#39FF14;">▒░</span>
