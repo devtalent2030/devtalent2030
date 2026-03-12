@@ -10,11 +10,10 @@
 </h1>
 
 <p align="center" style="font-family:Consolas,Monaco,'Courier New',monospace;">
-  Toronto • Hybrid/Remote
 </p>
 
 <p align="center">
-  <a href="mailto:trnyota@gmail.com">Email</a> ·
+  <a href="mailto:devtalent208@gmail.com">Email</a> ·
   <a href="https://www.linkedin.com/in/talentnyota/">LinkedIn</a>
 </p>
 
